@@ -11,7 +11,7 @@ import sys
 def export_to_json(user_id):
     """Fetch user and todos, then export to JSON."""
     base_url = "https://jsonplaceholder.typicode.com"
-    
+
     # Fetch user information
     user_response = requests.get(f"{base_url}/users/{user_id}")
     if user_response.status_code != 200:
@@ -19,10 +19,11 @@ def export_to_json(user_id):
         return
     user = user_response.json()
     username = user.get("username")
-    
+
     # Fetch user's todos
-    todos_response = requests.get(f"{base_url}/todos",
-                                  params={"userId": user_id})
+    todos_response = requests.get(
+        f"{base_url}/todos", params={"userId": user_id}
+    )
     if todos_response.status_code != 200:
         print(f"Could not fetch todos for user {user_id}.")
         return
