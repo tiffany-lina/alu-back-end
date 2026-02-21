@@ -34,7 +34,10 @@ def display_todo_progress(employee_id):
     num_done = len(done_tasks)
 
     # First line
-    print(f"Employee {employee['name']} is done with tasks({num_done}/{total_tasks}):")
+    print(
+        f"Employee {employee['name']} is done with tasks("
+        f"{num_done}/{total_tasks}):"
+    )
 
     # Completed task titles
     for task in done_tasks:
@@ -43,7 +46,10 @@ def display_todo_progress(employee_id):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
+        print(
+            "Usage:\npython3 0-gather_data_from_an_API.py "
+            "<employee_id>"
+        )
         sys.exit(1)
 
     try:
