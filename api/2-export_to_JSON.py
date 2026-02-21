@@ -21,7 +21,8 @@ def export_to_json(user_id):
     username = user.get("username")
     
     # Fetch user's todos
-    todos_response = requests.get(f"{base_url}/todos", params={"userId": user_id})
+    todos_response = requests.get(f"{base_url}/todos",
+                                  params={"userId": user_id})
     if todos_response.status_code != 200:
         print(f"Could not fetch todos for user {user_id}.")
         return
