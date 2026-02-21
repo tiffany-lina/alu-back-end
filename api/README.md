@@ -27,3 +27,16 @@ Exports all tasks of a given employee to a CSV file.
 ```bash
 ./0-gather_data_from_an_API.py EMPLOYEE_ID
 ./1-export_to_CSV.py EMPLOYEE_ID
+
+# alu-back-end API
+
+This repository contains Python scripts to interact with the JSONPlaceholder API.
+
+## Script: 2-export_to_JSON.py
+
+Exports an employee's TODO list to JSON format.
+
+**Usage:**
+
+```bash
+python3 2-export_to_JSON.py <user_id>
