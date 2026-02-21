@@ -11,16 +11,22 @@ import requests
 def get_employee_data(employee_id):
     """Fetch employee information from API."""
     url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-    response = requests.get(url)
-    response.raise_for_status()
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        sys.exit(f"Error fetching employee data: {e}")
     return response.json()
 
 
 def get_employee_todos(employee_id):
     """Fetch TODO list for the employee from API."""
     url = "https://jsonplaceholder.typicode.com/todos"
-    response = requests.get(url, params={"userId": employee_id})
-    response.raise_for_status()
+    try:
+        response = requests.get(url, params={"userId": employee_id})
+        response.raise_for_status()
+    except requests.RequestException as e:
+        sys.exit(f"Error fetching TODOs: {e}")
     return response.json()
 
 
@@ -55,7 +61,6 @@ if __name__ == "__main__":
     try:
         emp_id = int(sys.argv[1])
     except ValueError:
-        print("Employee ID must be an integer")
-        sys.exit(1)
+        sys.exit("Employee ID must be an integer")
 
     display_todo_progress(emp_id)
