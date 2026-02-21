@@ -19,7 +19,9 @@ import sys
 
 def fetch_employee_data(employee_id):
     """Fetch employee info and all TODOs from the JSONPlaceholder API."""
-    user_url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
+    user_url = "https://jsonplaceholder.typicode.com/users/{}".format(
+        employee_id
+    )
     todos_url = (
         "https://jsonplaceholder.typicode.com/todos?userId={}"
         .format(employee_id)
