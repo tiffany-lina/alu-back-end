@@ -40,3 +40,11 @@ Exports an employee's TODO list to JSON format.
 
 ```bash
 python3 2-export_to_JSON.py <user_id>
+## Script: 3-dictionary_of_list_of_dictionaries.py
+
+Exports all employees' TODO list to a JSON file.
+
+**Usage:**
+
+```bash
+python3 3-dictionary_of_list_of_dictionaries.py
