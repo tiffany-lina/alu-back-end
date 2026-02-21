@@ -4,8 +4,8 @@ Gather data from JSONPlaceholder API for a given employee ID
 and display TODO list progress.
 """
 
-import sys
 import requests
+import sys
 
 
 def get_employee(employee_id):
@@ -37,14 +37,20 @@ def display_progress(employee_id):
     done_tasks = [t for t in todos if t.get("completed")]
     done_count = len(done_tasks)
 
-    print(f"Employee {employee['name']} is done with tasks({done_count}/{total}):")
+    # First line split for PEP8 (≤79 characters)
+    print(
+        "Employee {} is done with tasks({}/{})".format(
+            employee["name"], done_count, total
+        ) + ":"
+    )
+
     for task in done_tasks:
-        print(f"\t {task['title']}")
+        print("\t {}".format(task["title"]))
 
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print(f"Usage: {sys.argv[0]} <employee_id>")
+        print("Usage: {} <employee_id>".format(sys.argv[0]))
         sys.exit(1)
 
     try:
